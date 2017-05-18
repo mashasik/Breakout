@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<meta charset="UTF-8">
+	<title>Breakout</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/modal.css">
+</head>
+<body>
+
+	<!-- Панель-->
+	<div class="game-notifications clearfix">
+		<div class="instr">
+			Score : 0
+		</div>
+
+		<p style="text-align: center">
+			<a href="#openModal">About</a>
+		</p>
+		<div id="openModal" class="modalDialog">
+			<div><a href="#close" title="Close" class="close">X</a>
+		     <h2>About</h2>
+				<p>Institution: О. М. Beketov National University of Urban Economy in Kharkiv ( О.М.Beketov NUUE )</p>
+ 				<p>Department: Applied Mathematics and Information Technologies ( AM&IT )</p>
+ 				<h4>Executor</h3>
+ 				<p>Consultant: I. Yakovitskiy (igor.yakovitskiy@kname.edu.ua)</p>
+ 				<p>Specialty: System Engineering</p>
+ 				<p>Name Surname: Sasha Grubaya</p>
+ 				<p>Contact:
+ 				<a href="https://vk.com/id79837718">VK</a></p>
+ 				<h4>Version</h3>
+ 				<p>Date: 18.05.2017</p>
+		  </div>
+		</div>
+
+		<ul class="life">
+			<li class="heart"></li>
+			<li class="heart"></li>
+			<li class="heart"></li>
+		</ul>
+	</div>
+
+	<!-- Контейнер игры -->
+	<div class="container">
+		<canvas id="breakout-game" height="430" width="375"></canvas>
+	</div>
+	<div class="container">
+		<div class="instr-footer">
+			<small>
+				Use left and right buttons to move paddle.
+				<br>
+				Press <button id="space" style="padding: 5px">Start game</button>
+			</small>
+		</div>
+		<button id="pressLeft">Left</button>
+		<button id="pressRight">Right</button>
+	</div>
+
+	<!-- Окно конца игры -->
+	<div class="modal-overlay">
+	</div>
+	<div class="modal-box">
+		<h3>Game Over</h3>
+		<p class="modal-message">Congratulations, you've beaten the game. Would you like to play again?</p>
+		<a href="#" class="btn-play-again">Play breakout again!</a>
+	</div>
+
+	<script src="js/jquery.js"></script>
+	<script src="js/game.js"></script>
+	<script type="text/javascript" src="cordova.js"></script>
+
+</body>
+</html>
