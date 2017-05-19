@@ -1,23 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-	<meta charset="UTF-8">
-	<title>Breakout</title>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<script src="js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/modal.css">
+  <title>Breakout</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="viewport" content="width=device-width", initial-scale=1.0, user-scalable="no"/>
+  <link href="css/breakout.css" media="screen, print" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="css/modal.css">
 </head>
 <body>
 
-	<!-- Панель-->
-	<div class="game-notifications clearfix">
-		<div class="instr">
-			Score : 0
-		</div>
-
-		<p style="text-align: center">
+  <div id="breakout">
+    <canvas id="canvas">
+    </canvas>
+    <div id="levels">
+      <img id="next" class="disabled">
+      <img id="prev" class="disabled">
+      <span id="label"></span><span id="level"></span>
+    </div>
+    <div id="controls">
+      <input id='sound' type='checkbox' />
+      <label for='sound'>sound</label>
+    </div>
+    <div id="instructions" style='display:none;'>
+      <div class='keyboard'>
+        <b>5</b> to start<br>
+        <b>4/6</b> to move paddle<br>
+      </div>
+    </div>
+  </div>
+  <p class="class">Input to play: <input type="number"></p>
+  <p class="class">
 			<a href="#openModal">About</a>
 		</p>
 		<div id="openModal" class="modalDialog">
@@ -25,55 +37,26 @@
 		     <h2>About</h2>
 				<p>Institution: О. М. Beketov National University of Urban Economy in Kharkiv ( О.М.Beketov NUUE )</p>
  				<p>Department: Applied Mathematics and Information Technologies ( AM&IT )</p>
- 				<h4>Executor</h3>
+ 				<h4>Executor</h4>
  				<p>Consultant: I. Yakovitskiy (igor.yakovitskiy@kname.edu.ua)</p>
  				<p>Specialty: System Engineering</p>
- 				<p>Name: Sasha Grubaya</p>
-				<p>Name: Lera Morozova</p>
- 				<p>Contact:
- 				<a href="https://vk.com/id79837718">VK Sasha</a>
-				<a href="https://vk.com/id26693764">VK Lera</a>
-				</p>
- 				<h4>Version</h3>
+ 				<p>Name: Sasha Grubaya
+          <a href="https://vk.com/id79837718">VK</a></p>
+				<p>Name: Lera Morozova
+          <a href="https://vk.com/id26693764">VK</a></p>
+ 				<h4>Version</h4>
  				<p>Date: 18.05.2017</p>
 		  </div>
 		</div>
 
-		<ul class="life">
-			<li class="heart"></li>
-			<li class="heart"></li>
-			<li class="heart"></li>
-		</ul>
-	</div>
-
-	<!-- Контейнер игры -->
-	<div class="container">
-		<canvas id="breakout-game" height="430" width="375"></canvas>
-	</div>
-	<div class="container">
-		<div class="instr-footer">
-			<small>
-				Use left and right buttons to move paddle.
-				<br>
-				Press <button id="space" style="padding: 5px">Start game</button>
-			</small>
-		</div>
-		<button id="pressLeft">Left</button>
-		<button id="pressRight">Right</button>
-	</div>
-
-	<!-- Окно конца игры -->
-	<div class="modal-overlay">
-	</div>
-	<div class="modal-box">
-		<h3>Game Over</h3>
-		<p class="modal-message">Congratulations, you've beaten the game. Would you like to play again?</p>
-		<a href="#" class="btn-play-again">Play breakout again!</a>
-	</div>
-
-	<script src="js/jquery.js"></script>
-	<script src="js/game.js"></script>
-	<script type="text/javascript" src="cordova.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/breakout.js"></script>
+  <script src="js/levels.js"></script>
+  <script>
+  Game.ready(function() {
+    var game = Game.start('canvas', Breakout);
+  });
+  </script>
 
 </body>
 </html>
